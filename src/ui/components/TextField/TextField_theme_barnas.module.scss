@@ -1,0 +1,254 @@
+@import '../../../styles/variables.barnas';
+
+$animationSpeed: .3s;
+
+%textFieldStatusIcon {
+  width: $textFieldSize;
+  height: $textFieldSize - 4;
+  line-height: $textFieldSize - 4;
+  text-align: center;
+  right: 0;
+  top: 0;
+  position: absolute;
+  font-family: 'iconfont';
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+
+  &__caption {
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $inputLabelColor;
+  }
+
+  &__control {
+    //border: 2px solid $inputBorderColor;
+    border-radius: $buttonBorderRadius $buttonBorderRadius 0 0;
+    position: relative;
+    overflow: hidden;
+    height: $textFieldSize;
+    display: flex;
+    align-items: center;
+    //box-shadow: inset 0 1px 0 #a00;
+
+    &::before, &::after {
+      // bottom animated line
+      content: '';
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      height: 2px;
+      background: $textFieldSuccessColor;
+      width: 50%;
+      transition: transform $animationSpeed, opacity $animationSpeed;
+      opacity: 0;
+    }
+
+
+    &::before {
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      transform: translateX(200%);
+    }
+
+    &:hover {
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid darken($textFieldBgColor, 40);
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    font-family: $fontFamily;
+    font-weight: 400;
+    color: $textColor;
+    padding: 0 $textFieldHorizontalGap;
+    background: $textFieldBgColor;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    width: $textFieldSize + 4;
+    height: $textFieldSize - 1;
+    border-right: 1px solid $inputBorderColor;
+
+    &::before {
+      background: #F9F9F9;
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-align: center;
+      color: $inputLabelColor;
+      font-size: 18px;
+      line-height: $textFieldSize - 4 !important;
+    }
+  }
+
+  &__mask {
+    background: #F9F9F9;
+    border-right: 1px solid $inputBorderColor;
+    height: 100%;
+    line-height: $textFieldSize - 4;
+    padding: 0 $textFieldHorizontalGap;
+    font-size: 18px;
+    font-weight: 500;
+    color: $inputLabelColor;
+  }
+
+  &__note {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 4px;
+    padding-left: 8px;
+    color: $inputLabelColor;
+
+    &_error {
+      color: $warningColor;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    background: linear-gradient(to top, $buttonModBaseBgFirst, $buttonModBaseBgSecond);
+    border: 0;
+    border-bottom: 1px solid darken($textFieldBgColor, 40);
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: $buttonBaseColor;
+    padding: 0 $textFieldHorizontalGap;
+    text-align: center;
+    box-shadow: inset 1px 0 rgba(#999, .2);
+
+    &:hover {
+      background: darken($buttonModBaseBgFirst, 2);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 4px rgba(darken($inputBorderColor, 32), .5);
+    }
+  }
+
+  &__button-icon {
+    display: block;
+    font-size: 22px;
+  }
+
+  &_focus {
+    .text-field__control {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      &::after {
+        transform: translateX(100%);
+        opacity: 1;
+      }
+    }
+  }
+
+  &_success {
+    .text-field__status-icon {
+      display: none;
+    }
+
+  }
+
+  &_error {
+    .text-field__status-icon {
+      display: none;
+    }
+
+    .text-field__control {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+        background: $warningColor;
+      }
+
+      &::after {
+        transform: translateX(100%);
+        opacity: 1;
+        background: $warningColor;
+      }
+    }
+
+  }
+
+  &_filled {
+    display: block;
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_animated {
+    position: relative;
+
+    .text-field__caption {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      transition: transform $animationSpeed;
+    }
+
+    .text-field__label {
+      font-size: 19px;
+      transition: font-size $animationSpeed;
+    }
+
+    .text-field__input {
+      padding-top: 15px;
+
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+
+    &.text-field_focus,
+    &.text-field_filled {
+      .text-field__caption {
+        transform: translateY(-14px);
+      }
+
+      .text-field__label {
+        font-size: 14px;
+        color: $inputLabelAnimatedColor;
+      }
+    }
+
+    &.text-field_error {
+      .text-field__label {
+        color: $warningColor;
+      }
+    }
+
+  }
+
+  &_with-icon {
+    .text-field__input {
+      padding-left: $textFieldSize + $textFieldHorizontalGap;
+    }
+  }
+}

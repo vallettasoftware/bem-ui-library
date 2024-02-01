@@ -1,0 +1,76 @@
+@import '../../../styles/variables.barnas';
+
+.checkbox {
+  display: flex;
+  min-height: $checkBoxSize;
+
+  &_disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  &__input {
+    display: none;
+    visibility: hidden;
+
+    &:checked {
+      + .checkbox__label {
+        &::after {
+          border-color: $inputBorderHighlight;
+          background: linear-gradient(135deg, $buttonModPrimaryBg 0, lighten($buttonModPrimaryBg, 5%) 100%);
+        }
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 34px;
+    font-size: 16px;
+    line-height: $checkBoxSize;
+    color: $inputLabelColor;
+    user-select: none;
+
+    &::after {
+      // checkbox
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: $checkBoxSize;
+      height: $checkBoxSize;
+      box-sizing: border-box;
+      border: 1px solid $inputBorderColor;
+      border-radius: 2px;
+      transition: border-color .2s ease-in-out;
+      background: linear-gradient(135deg, #e6e6e6 0, #fff 100%);
+    }
+
+    &::before {
+      // checkbox icon
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $checkBoxSize;
+      height: $checkBoxSize;
+      content: "\e90d";
+      font-family: "iconfont";
+      color: white;
+      z-index: 2;
+      text-align: center;
+      transform: scale(0);
+      transition: transform 0.2s cubic-bezier(0, -.645, 1, .01);
+    }
+
+    &:hover {
+      &::after {
+        border-color: darken($inputBorderColor, 16);
+      }
+    }
+  }
+}

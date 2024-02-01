@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Metropolis';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Metropolis Regular'), local('Metropolis-Regular'), url('../template/fonts/metropolis_400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Metropolis Semibold'), local('Metropolis-Semibold'), url('../template/fonts/metropolis_600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$main-bg: url(../images/bg.jpg) top center / contain;
+$app-bg:  rgba(93, 147, 76, .8);
+$aside-bg: #2c73c8;
+$head-color: #efbf41;
+$head-link-color: #ff9444;
+$app-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+ 
+$nav-link-color: white;
+$nav-link-active: #fdbf40;
+$nav-link-bg: #2f73c2;
+$nav-sub-link: #679fde;
+
+
+$logo-color: #fae01e; 
+$copyright: white;
+
+/* UI Colors*/
+$control: #5c96ec;
+
+$color_bg             : #fff;
+$link_color           : #000;
+$link-decoration      : underline;
+$link-hover-color     : #ccc;
+$link-hover-decoration: underline;
+$table-bg             : #fff;
+$color_blue           : #63b5f5;
+$color_red            : #ec0000;
+$color_pink           : #cf5376;

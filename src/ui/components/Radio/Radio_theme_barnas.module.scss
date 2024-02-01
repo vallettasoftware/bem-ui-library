@@ -1,0 +1,76 @@
+@import '../../../styles/variables.barnas';
+
+.radio {
+  display: flex;
+  min-height: $radioButtonSize;
+
+  &_disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  &__input {
+    display: none;
+    visibility: hidden;
+
+    &:checked {
+      + .radio__label {
+        &::after {
+          border-color: #98cf90;
+          background: $secondaryColor;
+        }
+
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 32px;
+    font-size: 16px;
+    line-height: $radioButtonSize;
+    color: $inputLabelColor;
+    user-select: none;
+
+    &::after {
+      // radio
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: $radioButtonSize;
+      height: $radioButtonSize;
+      box-sizing: border-box;
+      border: 1px solid $inputBorderColor;
+      border-radius: 50%;
+      transition: border-color .2s ease-in-out;
+      background: #fff;
+    }
+
+    &::before {
+      // radio icon
+      position: absolute;
+      top: $radioButtonSize/4;
+      left: $radioButtonSize/4;
+      width: $radioButtonSelectedSize;
+      height: $radioButtonSelectedSize;
+      content: '';
+      background: white;
+      z-index: 2;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.2s cubic-bezier(0, -.645, 1, .01);
+      box-shadow: 3px 3px 5px rgba(#000, .35);
+    }
+
+    &:hover {
+      &::after {
+        border-color: darken($inputBorderColor, 16);
+      }
+    }
+  }
+}

@@ -1,0 +1,236 @@
+@import './variables.scss';
+
+.nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 23px 0 0;
+	max-width: 290px;
+
+	&__box {
+		height: calc(100% - 120px);
+		overflow-y: scroll;
+		margin: 0 -25px 0 0;
+	}
+
+	&__item {
+		// max-height: 50px;
+		overflow: hidden;
+		transition: max-height 0.5s linear;
+
+		&.active {
+			max-height: 500px;
+		}
+
+		.nav_dashboard & {
+			&:not(:first-child) {
+				.nav__link {
+					&:before {
+						font-size: 24px;
+						left: 21px;
+					}
+				}
+			}
+
+			&:last-child {
+				border-top: 1px solid #dfddde;
+			}
+		}
+	}
+	
+	&__link {
+		position: relative;
+		padding: 0 0 0 65px;
+		display: block;
+		color: $nav-link-color;
+		font-size: 19px;
+		height: 50px;
+		font-weight: 400;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		border-top: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+		transition: background-color .35s;
+
+		&:before {
+			left: 25px;
+			position: absolute;
+			opacity: 0.7;
+		}
+
+		&.icon-login:before {
+			top: 16px;
+			left: 23px;
+			font-size: 21px;
+		}
+
+		&.icon-singup:before {
+			top: 16px;
+			font-size: 20px;
+		}
+
+		&.icon-support:before {
+			top: 14px;
+			font-size: 22px;
+		}
+
+		&:active,
+		&:focus {
+			text-decoration: none;
+			color: $nav-link-color;
+		}
+
+		&:hover,
+		&:hover:active {
+			color: $nav-link-color;
+			text-decoration: none;
+			background-color: darken($aside-bg, 5%);
+		}
+
+		&_active {
+			border-top: 1px solid lighten($nav-link-bg, 20%);
+			border-bottom: 1px solid darken($nav-link-bg, 10%);
+			background-color: lighten($nav-link-bg, 5%);
+			cursor: default;
+
+			&:before {
+				opacity: 1;
+			}
+			
+			&:after {
+				content: '';
+				display: block;
+				width: 6px;
+				background-color: $nav-link-active;
+				position: absolute;
+				top: -1px;
+				bottom: -1px;
+				right: 0;
+			}
+
+			&:hover, &:active, &:focus {
+				background-color: lighten($nav-link-bg, 5%);
+			}
+		}
+
+		&_disabled {
+			opacity: 0.4;
+			cursor: default;
+			pointer-events: none;
+			
+			&:hover, &:focus, &:active {
+				background: none;
+				color: #8a8a8c;
+			}
+		}
+
+		&_add-activity {
+			margin: 40px 0 0;
+			
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__amount {
+		color: white;
+		margin: 0 20px 0 auto;
+		background-color: #d14949;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 12px;
+		font-weight: 700;
+		border-radius: 5px;
+		padding: 3px 5px 5px;
+		line-height: 1;
+		vertical-align: top;
+
+		&_secondary {
+			background-color: #5c96ec;
+		}
+	}
+}
+
+.nav-sub {
+	display: block;
+	list-style: none;
+	padding: 0;
+	padding: 5px 0 0 0;
+	position: relative;
+
+	&:after {
+		content: '';
+		width: 6px;
+		height: 100%;
+		display: block;
+		background: $nav-link-active;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__item {
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+
+	&__link {
+		font-size: 15px;
+		font-weight: 400;
+		color: $nav-link-color;
+		text-decoration: none;
+		line-height: 41px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		transition: background-color .35s;
+
+		&:before {
+			content: '';
+			width: 1px;
+			height: 41px;
+			margin: 0 30px 0 33px;
+			display: block;
+			background: $nav-sub-link;
+			float: left;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background: $nav-sub-link;
+			position: absolute;
+			top: 17px;
+			left: 30px;
+		}
+
+		&:hover, &:hover:active {
+			text-decoration: none;
+			background: darken($aside-bg, 5%);
+			color: $nav-link-color;
+		}
+
+		&:active,
+		&:focus {
+			text-decoration: none;
+			color: $nav-link-color;
+		}
+
+		&_active {
+			background: lighten($nav-link-bg, 5%);
+
+			&:after {
+				background: $nav-link-color;
+			}
+		}
+	}
+}

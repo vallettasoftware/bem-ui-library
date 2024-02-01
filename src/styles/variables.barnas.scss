@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('../fonts/lato/lato_400.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url('../fonts/lato/lato_700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$fontFamily: 'Lato', 'Helvetica', 'Arial', sans-serif;
+
+$primaryColor: #5c96ec;
+$secondaryColor: #9bdf91;
+$successColor: #9bdf91;
+$warningColor: #ff5959;
+$textColor: #232631;
+
+$buttonBorderRadius: 4px;
+$buttonGroupHorizontalGap: 8px;
+$buttonGroupVerticalGap: 8px;
+$buttonHeight: 41px;
+$buttonSmallHeight: 37px;
+
+
+$buttonBaseColor: #5d5e64;
+
+$buttonModPrimaryBg: #5c96ec;
+$buttonModPrimaryBorderColor: #4976ba;
+
+
+$buttonModBaseBgFirst: #e1e1e3;
+$buttonModBaseBgSecond: #f3f3f4;
+
+$inputBorderColor: #d3d3d3;
+$inputBorderHoverColor: #B8C2CC;
+$inputBorderHighlight: #2f6bd4;
+$inputLabelColor: #6c6c6c; // for radio, checkbox
+$inputLabelPrimaryColor: #B8C2CC; // for text-field
+$inputLabelAnimatedColor: #90a9fa;
+
+$checkBoxSize: 20px;
+$radioButtonSize: 20px;
+$radioButtonSelectedSize: 10px;
+$textFieldSize: 52px;
+$textFieldHorizontalGap: 16px;
+$textFieldVerticalGap: 16px;
+$textFieldBgColor: #f3f3f3;
+$textFieldSuccessColor: #377efd;
+
+$tabsContentPadding: 16px;
+$tabsBorderColor: #eee;
+
+$switchWidth: 40px;
+$switchHeight: 25px;
+$switchBgColor: #e0e0e0;
+
+$switchTabsHeight: 40px;
+$switchTabsBorderSize: 1px;
+
+$paginationBgColor: #fdfefd;
+$paginationBorderColor: #f1f3f1;
+$paginationLinkColor: #c0c2c0;
+$paginationLinkHoverBg: #f5f5f5;
+$paginationLinkCurrentColor: #dddedd;
+$paginationLinkActiveBg: #e7e8e8;

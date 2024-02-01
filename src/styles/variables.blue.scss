@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url('../fonts/poppins/poppins_400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Poppins Medium'), local('Poppins-Medium'), url('../fonts/poppins/poppins_500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('../fonts/poppins/poppins_600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Poppins Bold'), local('Poppins-Bold'), url('../fonts/poppins/poppins_700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$fontFamily: Poppins, 'Helvetica', 'Arial', sans-serif;
+
+$primaryColor: #0642FF;
+$successColor: #52CC7A;
+$warningColor: #FF4D55;
+$textColor: #737980;
+//$secondaryColor: #9bdf91;
+
+$buttonBorderRadius: 4px;
+$buttonGroupHorizontalGap: 8px;
+$buttonGroupVerticalGap: 8px;
+$buttonHeight: 48px;
+$buttonSmallHeight: 37px;
+
+
+$buttonBaseColor: #737980;
+
+$buttonModPrimaryBg: $primaryColor;
+//$buttonModPrimaryBorderColor: #4976ba;
+
+$buttonModBaseBgFirst: #EBEEF0;
+//$buttonModBaseBgSecond: #f3f3f4;
+
+$inputBorderColor: #EBEEF0;
+$inputBorderHoverColor: #B8C2CC;
+$inputBorderHighlight: #2f6bd4;
+$inputLabelColor: #737980; // for radio, checkbox
+$inputLabelPrimaryColor: #B8C2CC; // for text-field
+
+$checkBoxSize: 20px;
+$radioButtonSize: 20px;
+$radioButtonSelectedSize: 8px;
+$textFieldSize: 40px;
+$textFieldHorizontalGap: 12px;
+$textFieldVerticalGap: 16px;
+$textFieldBgColor: #fff;
+
+$tabsContentPadding: 16px;
+$tabsBorderColor: #D9DEE1;
+
+$switchWidth: 64px;
+$switchHeight: 30px;
+$switchBgColor: #dadada;
+
+$switchTabsHeight: 40px;
+$switchTabsBorderSize: 2px;
+
+$paginationBgColor: #fdfefd;
+$paginationBorderColor: #ececec;
+$paginationLinkColor: #4d4d4d;
+$paginationLinkHoverBg: #f5f5f5;
+$paginationLinkCurrentColor: #fff;
+$paginationLinkActiveBg: #e7e8e8;

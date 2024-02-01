@@ -1,0 +1,31 @@
+.page {
+  padding: 32px 40px 64px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
+
+  &__header {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+
+  &__content {
+    min-height: 600px;
+  }
+
+  &_type {
+    &_home {
+      display: flex;
+
+      .page__content {
+        display: flex;
+      }
+    }
+  }
+}

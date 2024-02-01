@@ -1,0 +1,184 @@
+@import '../../../styles/variables.barnas';
+
+$animationSpeed: .3s;
+
+%textFieldStatusIcon {
+  width: $textFieldSize;
+  height: $textFieldSize - 4;
+  line-height: $textFieldSize - 4;
+  text-align: center;
+  right: 0;
+  top: 0;
+  position: absolute;
+  font-family: 'iconfont';
+}
+
+.textarea-field {
+  display: flex;
+  flex-direction: column;
+
+  &__caption {
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: $inputLabelColor;
+  }
+
+  &__control {
+    border-radius: $buttonBorderRadius $buttonBorderRadius 0 0;
+    position: relative;
+    overflow: hidden;
+
+    &::before, &::after {
+      // bottom animated line
+      content: '';
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      height: 2px;
+      background: $textFieldSuccessColor;
+      width: 50%;
+      transition: transform $animationSpeed, opacity $animationSpeed;
+      opacity: 0;
+    }
+
+    &::before {
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      transform: translateX(200%);
+    }
+
+    &:hover {
+    }
+  }
+
+  &__textarea {
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid darken($textFieldBgColor, 40);
+    outline: none;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-family: $fontFamily;
+    font-weight: 400;
+    color: $textColor;
+    padding: $textFieldVerticalGap/2 $textFieldHorizontalGap;
+    background: $textFieldBgColor;
+    resize: vertical!important;
+  }
+
+  &__note {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 4px;
+    padding-left: 8px;
+    color: $inputLabelColor;
+
+    &_error {
+      color: $warningColor;
+    }
+  }
+
+  &_focus {
+    .textarea-field__control {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      &::after {
+        transform: translateX(100%);
+        opacity: 1;
+      }
+    }
+  }
+
+
+  &_error {
+    .text-field__status-icon {
+      display: none;
+    }
+
+    .textarea-field__control {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+        background: $warningColor;
+      }
+
+      &::after {
+        transform: translateX(100%);
+        opacity: 1;
+        background: $warningColor;
+      }
+    }
+
+  }
+
+  &_filled {
+    display: block;
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_animated {
+    position: relative;
+
+    .textarea-field__caption {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      transition: transform $animationSpeed;
+    }
+
+    .textarea-field__label {
+      font-size: 19px;
+      transition: font-size $animationSpeed;
+    }
+
+    .textarea-field__textarea {
+      padding-top: 24px;
+
+      &::placeholder {
+        visibility: hidden;
+      }
+    }
+
+    &.textarea-field_focus,
+    &.textarea-field_filled {
+      .textarea-field__caption {
+        transform: translateY(-14px);
+      }
+
+      .textarea-field__label {
+        font-size: 14px;
+        color: $inputLabelAnimatedColor;
+      }
+    }
+
+    &.textarea-field_error {
+      .textarea-field__label {
+        color: $warningColor;
+      }
+    }
+
+  }
+
+  &_with-icon {
+    .text-field__input {
+      padding-left: $textFieldSize + $textFieldHorizontalGap;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@import '../../../styles/variables.blue';
+
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__input {
+    width: $switchWidth;
+    height: $switchHeight;
+    margin: 0;
+    border: 0;
+    visibility: hidden;
+
+    + .switch__label {
+      margin-left: $buttonGroupHorizontalGap;
+    }
+
+    &:checked {
+      + .switch__label {
+        &::before {
+          background: $primaryColor;
+        }
+
+        &::after {
+          transform: translate(34px, -50%);
+        }
+      }
+    }
+  }
+
+  &__label {
+    font: 500 14px/1 $fontFamily;
+    display: inline-block;
+    color: $textColor;
+
+    &::before {
+      width: $switchWidth;
+      height: $switchHeight;
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: $switchHeight;
+      background: $switchBgColor;
+      transition: background-color .4s;
+    }
+
+    &::after {
+      width: $switchHeight - 4;
+      height: $switchHeight - 4;
+      background: #fff;
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      content: '';
+      transform: translateY(-50%);
+      border-radius: $switchHeight;
+      transition: transform .4s;
+
+    }
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_dynamic-labels {
+    .switch__input {
+      &:checked {
+        + .switch__label {
+          &::before {
+            content: attr(data-on);
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .switch__label {
+      font-size: 0;
+
+      &::before {
+        font: 500 14px/#{$switchHeight} $fontFamily;
+        content: attr(data-off);
+        text-align: right;
+        padding: 0 8px;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        transition: all .2s;
+        color: #fff;
+      }
+    }
+  }
+}

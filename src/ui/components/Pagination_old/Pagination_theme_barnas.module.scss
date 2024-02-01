@@ -1,0 +1,135 @@
+@import '../../../styles/icons.scss';
+@import '../../../styles/variables.barnas';
+
+.pagination {
+  display: block;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: $paginationBgColor;
+    border: 1px solid $paginationBorderColor;
+    border-radius: $buttonBorderRadius;
+    box-shadow: 0 1px 1px rgba(#000, .1);
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:first-child):before {
+      content: '';
+      width: 1px;
+      height: 24px;
+      background-color: $paginationBorderColor;
+      position: absolute;
+      top: 4px;
+      left: 0;
+
+      @media (max-width: 767px) {
+        height: 35px;
+        top: 0;
+      }
+    }
+
+    &:first-child .pagination__link {
+      border-radius: $buttonBorderRadius 0 0 $buttonBorderRadius;
+    }
+
+    &:last-child .pagination__link {
+      border-radius: 0 $buttonBorderRadius $buttonBorderRadius 0;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+
+      &:last-child,
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $paginationLinkColor;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    padding: 9px 12px;
+    text-decoration: none;
+    transition: background-color .35s, color .35s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: 767px) {
+      padding: 4px 10px;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: $paginationLinkColor;
+    }
+
+    &:not(span):hover {
+      background-color: $paginationLinkActiveBg;
+      color: darken($paginationLinkColor, 15%);
+    }
+
+    &:not(span):hover:active {
+      background-color: darken($paginationLinkActiveBg, 15%);
+      color: darken($paginationLinkColor, 30%);
+    }
+
+    &_current,
+    &_disabled {
+      pointer-events: none;
+      color: $paginationLinkCurrentColor;
+    }
+
+    &_prev {
+      @include icomoon("\e937");
+
+      &:before {
+        font-size: 16px;
+        display: block;
+        transform: rotateZ(180deg);
+
+        @media (max-width: 767px) {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &_next {
+      @include icomoon("\e937");
+
+      &:before {
+        font-size: 16px;
+
+        @media (max-width: 767px) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  &__gap {
+    display: block;
+    color: $paginationLinkColor;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    padding: 9px 12px;
+
+    @media (max-width: 767px) {
+      padding: 4px 10px;
+    }
+  }
+}

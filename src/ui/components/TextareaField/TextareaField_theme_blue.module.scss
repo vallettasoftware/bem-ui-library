@@ -1,0 +1,106 @@
+@import '../../../styles/variables.blue';
+
+%textFieldStatusIcon {
+  width: $textFieldSize;
+  height: $textFieldSize - 4;
+  line-height: $textFieldSize - 4;
+  text-align: center;
+  right: 0;
+  top: 0;
+  position: absolute;
+  font-family: 'iconfont';
+}
+
+.textarea-field {
+  display: flex;
+  flex-direction: column;
+
+  &__caption {
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    display: block;
+    font: 500 14px/21px $fontFamily;
+    color: $inputLabelPrimaryColor;
+  }
+
+  &__control {
+    border: 2px solid $inputBorderColor;
+    border-radius: $buttonBorderRadius;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+    }
+  }
+
+  &__textarea {
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    font-family: $fontFamily;
+    font-weight: 500;
+    color: $textColor;
+    padding: $textFieldVerticalGap/2 $textFieldHorizontalGap;
+    background: $textFieldBgColor;
+    resize: vertical !important;
+  }
+
+  &__note {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 4px;
+    padding-left: 4px;
+    color: $inputLabelColor;
+
+    &_error {
+      color: $warningColor;
+    }
+  }
+
+  &_focus {
+    .textarea-field__control {
+      border-color: $inputBorderHoverColor;
+    }
+  }
+
+
+  &_error {
+    .text-field__status-icon {
+      display: none;
+    }
+
+    .textarea-field__control {
+      &::before {
+        transform: translateX(0);
+        opacity: 1;
+        background: $warningColor;
+      }
+
+      &::after {
+        transform: translateX(100%);
+        opacity: 1;
+        background: $warningColor;
+      }
+    }
+
+  }
+
+  &_filled {
+    display: block;
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_animated {
+
+  }
+
+}

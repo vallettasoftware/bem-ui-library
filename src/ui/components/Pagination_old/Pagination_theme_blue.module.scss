@@ -1,0 +1,141 @@
+@import '../../../styles/icons.scss';
+@import '../../../styles/variables.blue';
+
+.pagination {
+  display: block;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: none;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    &:first-child .pagination__link {
+      border-radius: $buttonBorderRadius 0 0 $buttonBorderRadius;
+    }
+
+    &:last-child .pagination__link {
+      border-radius: 0 $buttonBorderRadius $buttonBorderRadius 0;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+
+      &:last-child,
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $paginationLinkColor;
+    font: 500 14px/20px $fontFamily;
+    padding: 10px;
+    min-width: 40px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .35s, color .35s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: $buttonBorderRadius;
+
+    @media (max-width: 767px) {
+      padding: 4px 10px;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: $primaryColor;
+    }
+
+    &:hover {
+      color: $primaryColor;
+      background: rgba($primaryColor, .2);
+    }
+
+    &:not(span):hover:active {
+      background-color: darken($paginationLinkActiveBg, 15%);
+      color: darken($paginationLinkColor, 30%);
+    }
+
+    &_disabled {
+      pointer-events: none;
+      opacity: .5;
+    }
+
+    &_current {
+      pointer-events: none;
+      background: $primaryColor;
+      box-shadow: 0 3px 7px rgba(0, 129, 255, .4);
+      color: $paginationLinkCurrentColor;
+    }
+
+    &_prev,
+    &_next {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        font-size: 14px;
+        display: block;
+        padding: 0 4px;
+
+        @media (max-width: 767px) {
+          font-size: 24px;
+        }
+      }
+
+      &::after {
+        // Text next, prev page
+        content: attr(data-title);
+        font: 500 14px/20px $fontFamily;
+        text-transform: uppercase;
+      }
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    &_prev {
+      @include icomoon("\e90f");
+      padding-right: 0;
+    }
+
+    &_next {
+      @include icomoon("\e913");
+      padding-left: 0;
+
+      &::after {
+        order: -1;
+      }
+    }
+  }
+
+  &__gap {
+    display: block;
+    color: $paginationLinkColor;
+    font: 500 14px/20px $fontFamily;
+    padding: 10px;
+
+    @media (max-width: 767px) {
+      padding: 4px 10px;
+    }
+  }
+}

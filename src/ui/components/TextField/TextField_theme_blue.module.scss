@@ -1,0 +1,198 @@
+@import '../../../styles/variables.blue';
+
+%textFieldStatusIcon {
+  width: $textFieldSize;
+  height: $textFieldSize - 4;
+  line-height: $textFieldSize - 4;
+  text-align: center;
+  right: 0;
+  top: 0;
+  position: absolute;
+  font-family: 'iconfont';
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+
+  &__caption {
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    display: block;
+    font: 500 14px/21px $fontFamily;
+    color: $inputLabelPrimaryColor;
+  }
+
+  &__control {
+    border: 2px solid $inputBorderColor;
+    border-radius: $buttonBorderRadius;
+    position: relative;
+    overflow: hidden;
+    height: $textFieldSize;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      border-color: $inputBorderHoverColor;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: $fontFamily;
+    color: $inputLabelColor;
+    padding: 0 $textFieldHorizontalGap;
+    background: $textFieldBgColor;
+  }
+
+  &__icon-box {
+    position: absolute;
+    width: $textFieldSize + 4;
+    height: $textFieldSize - 4;
+    border-right: 2px solid $inputBorderColor;
+    color: #dadada;
+    background: #f9f9f9;
+  }
+
+  &__icon {
+    display: block;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__mask {
+    background: #F9F9F9;
+    border-right: 2px solid $inputBorderColor;
+    height: 100%;
+    line-height: $textFieldSize - 4;
+    padding: 0 $textFieldHorizontalGap;
+    font-size: 14px;
+    font-weight: 500;
+    color: $inputLabelColor;
+  }
+
+  &__note {
+    font-size: 12px;
+    font-family: $fontFamily;
+    line-height: 18px;
+    margin-top: 4px;
+    padding-left: 4px;
+    color: $inputLabelColor;
+
+    &_error {
+      color: $warningColor;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    background: $inputBorderColor;
+    border: 0;
+    height: 100%;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: $buttonBaseColor;
+    padding: 0 $textFieldHorizontalGap;
+    text-align: center;
+
+    &:hover {
+      background: darken($inputBorderColor, 4);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 4px rgba(darken($inputBorderColor, 16), .5);
+    }
+  }
+
+  &__button-icon {
+    display: block;
+    font-size: 22px;
+  }
+
+  &_focus {
+    .text-field__control {
+      border-color: $inputBorderHoverColor;
+    }
+  }
+
+  &_success {
+    .text-field__status-icon {
+      &::before {
+        content: '\e90d';
+        color: $successColor;
+        @extend %textFieldStatusIcon;
+      }
+    }
+
+    .text-field__input {
+      padding-right: $textFieldSize;
+    }
+  }
+
+  &_error {
+    .text-field__status-icon {
+      &::before {
+        content: '\e90c';
+        color: $warningColor;
+        @extend %textFieldStatusIcon;
+      }
+    }
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_animated {
+    padding-top: 16px;
+    position: relative;
+
+    .text-field__input::placeholder {
+      display: none;
+      visibility: hidden;
+    }
+
+    .text-field__caption {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      transform: translateY(26px);
+      margin-bottom: 0;
+      left: $textFieldHorizontalGap;
+      transition: transform .25s;
+    }
+
+    &.text-field_focus,
+    &.text-field_filled {
+      .text-field__caption {
+        transform: translateY(-4px);
+      }
+
+      .text-field__label {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &_with-icon {
+    .text-field__input {
+      padding-left: $textFieldSize + $textFieldHorizontalGap;
+    }
+  }
+}

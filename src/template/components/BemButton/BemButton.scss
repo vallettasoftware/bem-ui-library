@@ -1,0 +1,38 @@
+.bem-button {
+  background: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 20px 6px;
+  border-radius: 4px;
+  box-shadow: 0 3px 7px rgba(#000, .2);
+  display: flex;
+  align-items: center;
+  color: #000;
+  transition: box-shadow .2s, color .2s;
+
+  &:hover {
+    text-decoration: inherit;
+    color: #0642FF;
+    box-shadow: 0 3px 14px rgba(#000, .2);
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &_only-icon {
+    padding-left: 10px;
+    padding-right: 10px;
+    .bem-button__text {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &__icon {
+    + .bem-button__text {
+      margin-left: 10px;
+    }
+  }
+}

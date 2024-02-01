@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Home",
+    "href": "/"
+  },
+  {
+    "label": "Buttons",
+    "href": "/buttons"
+  },
+  {
+    "label": "Checkbox",
+    "href": "/checkbox"
+  },
+  {
+    "label": "Radio",
+    "href": "/radio"
+  },
+  {
+    "label": "Modal",
+    "href": "/modal"
+  },
+  {
+    "label": "Inputs",
+    "href": "/inputs"
+  },
+  {
+    "label": "Textarea",
+    "href": "/textarea"
+  },
+  {
+    "label": "Icons",
+    "href": "/icons"
+  },
+  {
+    "label": "Tabs",
+    "href": "/tabs"
+  },
+  {
+    "label": "AutoComplete",
+    "href": "/autocomplete"
+  },
+  {
+    "label": "Switch",
+    "href": "/switch"
+  },
+  {
+    "label": "Steps",
+    "href": "/steps"
+  },
+  {
+    "label": "Select",
+    "href": "/select"
+  },
+  {
+    "label": "Pagination",
+    "href": "/pagination"
+  },
+  {
+    "label": "Slider",
+    "href": "/slider"
+  }
+]

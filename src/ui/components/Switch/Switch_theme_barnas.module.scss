@@ -1,0 +1,104 @@
+@import '../../../styles/variables.barnas';
+
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__input {
+    width: $switchWidth;
+    height: $switchHeight;
+    margin: 0;
+    border: 0;
+    visibility: hidden;
+
+    + .switch__label {
+      margin-left: $buttonGroupHorizontalGap;
+    }
+
+    &:checked {
+      + .switch__label {
+        &::before {
+          background: $successColor;
+        }
+
+        &::after {
+          transform: translate(15px, -50%);
+        }
+      }
+    }
+  }
+
+  &__label {
+    font: 400 16px/1 $fontFamily;
+    display: inline-block;
+
+    &::before {
+      width: $switchWidth;
+      height: $switchHeight;
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: $switchHeight;
+      background: $switchBgColor;
+      transition: background-color .2s;
+    }
+
+    &::after {
+      width: $switchHeight - 2;
+      height: $switchHeight - 2;
+      background: #fff;
+      position: absolute;
+      left: 1px;
+      top: 50%;
+      content: '';
+      transform: translateY(-50%);
+      box-shadow: 0 2px 5px rgba(#000, .25);
+      border-radius: $switchHeight;
+      transition: transform .2s;
+    }
+  }
+
+  &_disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &_dynamic-labels {
+    .switch__input {
+      width: $switchWidth * 1.5;
+
+      &:checked {
+        + .switch__label {
+          &::before {
+            content: attr(data-on);
+            text-align: left;
+            color: $inputLabelColor;
+          }
+
+          &::after {
+            transform: translate(35px, -50%);
+          }
+        }
+      }
+    }
+
+    .switch__label {
+      font-size: 0;
+
+      &::before {
+        font: 700 14px/#{$switchHeight} $fontFamily;
+        width: $switchWidth * 1.5;
+        content: attr(data-off);
+        text-align: right;
+        padding: 0 6px;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        transition: all .2s;
+        color: lighten($inputLabelColor, 20%);
+      }
+    }
+  }
+}

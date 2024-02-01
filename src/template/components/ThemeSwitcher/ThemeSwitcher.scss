@@ -1,0 +1,24 @@
+.theme-switcher {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #DBDBDB;
+  border-radius: 4px;
+  overflow: hidden;
+
+  &__button {
+    display: inline-block;
+    font: 700 13px/1 Metropolis, sans-serif;
+    cursor: pointer;
+    padding: 13px 16px 12px;
+    border-radius: 0;
+    text-transform: uppercase;
+
+    &_active {
+      background: #0642FF;
+      color: #fff;
+    }
+  }
+}
+

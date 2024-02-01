@@ -1,0 +1,61 @@
+@import '../../../styles//variables.scss';
+
+.tabs {
+    
+    &_column {
+        display: flex;
+    }
+}
+
+.tabs-controls {
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+
+    .tabs_column & {
+        flex-direction: column;
+        border-bottom: none;
+        border-right: 1px solid #eee;
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__line {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100px;
+        height: 2px;
+        background: $control;
+        transition: all 250ms ease;
+    }
+    
+    &__item {
+        display: block;
+        cursor: pointer;
+        padding: 10px 15px;
+        color: #a09b95;
+
+        &_active {
+            color: $control;
+        }
+    }
+}
+
+.tabs-content {
+    &__item {
+        display: none;
+        margin: 10px 0;
+
+        .tabs_column & {
+            margin: 10px;
+        }
+        
+        &_active {
+            display: block;
+        }
+    }
+}
